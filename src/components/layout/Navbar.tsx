@@ -6,12 +6,12 @@ import { MapPin } from "lucide-react";
 import Link from "next/link";
 import NavMenu from "./NavMenu";
 import { Input } from "../ui/input";
-import CartDrawer from "../cart/CartDrawer";
+import CartButton from "../cart/CartButton";
 import { UserButton } from "../auth/UserButton";
 
 export default function Navbar() {
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 flex h-20 items-center border-b-2 border-b-secondary bg-background/50 backdrop-blur-sm">
+    <header className="fixed left-0 right-0 top-0 z-50 flex h-20 items-center border-b-[1px] border-b-secondary bg-background/70 shadow-sm backdrop-blur-md">
       <nav className="container flex items-center justify-between gap-6">
         <div className="flex items-center ">
           <Link href="/">
@@ -39,7 +39,7 @@ export default function Navbar() {
         </div>
         <Input placeholder="Search restaurants, dishes or goods" />
         <div className="flex gap-3">
-          <CartDrawer />
+          <CartButton />
           <UserButton />
         </div>
       </nav>

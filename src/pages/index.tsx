@@ -1,8 +1,7 @@
 import { type NextPage } from "next";
 
 import Head from "next/head";
-
-import { Button } from "~/components/ui/button";
+import PromoCards from "~/components/common/PromoCards";
 
 const Home: NextPage = () => {
   return (
@@ -15,10 +14,8 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="container ">
-        <h1 className="mb-10 text-4xl font-bold">Primary Buttons</h1>
-        <Button size="lg">Order Now</Button>
-      </div>
+
+      <PromoCards />
     </>
   );
 };

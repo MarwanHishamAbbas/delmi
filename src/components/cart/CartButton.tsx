@@ -8,15 +8,17 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
+import { Badge } from "../ui/badge";
 
-export default function CartDrawer() {
+export default function CartButton() {
   return (
     <>
       <div className="hidden md:block">
         <Sheet>
           <SheetTrigger asChild>
-            <Button size="square" variant="secondary">
+            <Button className="relative" size="square" variant="secondary">
               <ShoppingCart />
+              <Badge className="bg-badge ">1</Badge>
             </Button>
           </SheetTrigger>
 
@@ -35,8 +37,9 @@ export default function CartDrawer() {
       <div className="md:hidden">
         <Sheet>
           <SheetTrigger asChild>
-            <Button size="square" variant="secondary">
+            <Button className="relative" size="square" variant="secondary">
               <ShoppingCart />
+              <Badge className="bg-badge ">1</Badge>
             </Button>
           </SheetTrigger>
           <SheetContent size="xl" position="bottom">

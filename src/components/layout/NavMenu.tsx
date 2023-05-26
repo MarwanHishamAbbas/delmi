@@ -1,5 +1,5 @@
 import { Button } from "../ui/button";
-import { Menu } from "lucide-react";
+import { MapPin, Menu } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,6 +7,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function NavMenu() {
   return (
@@ -17,11 +19,22 @@ export default function NavMenu() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Billing</DropdownMenuItem>
-        <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
+        <DropdownMenuLabel>
+          <Link href="/">
+            <Image src="/brand.svg" alt="logo" width={120} height={100} />
+          </Link>
+        </DropdownMenuLabel>
+        <DropdownMenuLabel asChild>
+          <Button variant="link" size="sm" icon={<MapPin />}>
+            Delivery address
+          </Button>
+        </DropdownMenuLabel>
+        <DropdownMenuItem asChild>
+          <Link href="/shops">Shops</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/restaurants">Restaurants</Link>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
