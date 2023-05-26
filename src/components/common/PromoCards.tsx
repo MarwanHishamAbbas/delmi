@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+import { Card, CardDescription, CardTitle } from "../ui/card";
 import { Backpack, Gift, Truck } from "lucide-react";
 
 const PROMO_CARD_DATA = [
