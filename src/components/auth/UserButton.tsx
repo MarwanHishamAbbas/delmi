@@ -1,4 +1,4 @@
-import { Facebook, User } from "lucide-react";
+import { Chrome, User } from "lucide-react";
 import { Button } from "../ui/button";
 import {
   Dialog,
@@ -9,21 +9,42 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
+import { signIn, useSession } from "next-auth/react";
+import Link from "next/link";
+import { useState } from "react";
 
 export function UserButton() {
+  const { status } = useSession();
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const signInWithGoogle = async () => {
+    setIsLoading(true);
+    try {
+      await signIn("google");
+    } catch (error) {
+      // Adding Toast Later
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        {/* If authenticated open the profile page, else open the modal */}
-        {/* <Link href="/profile">
+      {/* If authenticated open the profile page, else open the modal */}
+      {status === "authenticated" ? (
+        <Link href="/profile">
           <Button size="square" variant="secondary">
             <User />
           </Button>
-        </Link> */}
-        <Button size="square" variant="secondary">
-          <User />
-        </Button>
-      </DialogTrigger>
+        </Link>
+      ) : (
+        <DialogTrigger asChild>
+          <Button size="square" variant="secondary">
+            <User />
+          </Button>
+        </DialogTrigger>
+      )}
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="text-3xl font-bold">Login</DialogTitle>
@@ -33,8 +54,14 @@ export function UserButton() {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="mx-auto">
-          <Button variant="outline" icon={<Facebook />} type="submit">
-            Facebook
+          <Button
+            onClick={() => void signInWithGoogle()}
+            variant="outline"
+            icon={<Chrome />}
+            type="submit"
+            isLoading={isLoading}
+          >
+            Sign in with Google
           </Button>
         </DialogFooter>
       </DialogContent>
