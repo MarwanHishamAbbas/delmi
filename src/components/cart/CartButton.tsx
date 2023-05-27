@@ -18,7 +18,7 @@ export default function CartButton() {
           <SheetTrigger asChild>
             <Button className="relative" size="square" variant="secondary">
               <ShoppingCart />
-              <Badge className="bg-badge ">1</Badge>
+              <Badge className="bg-badge ">0</Badge>
             </Button>
           </SheetTrigger>
 
@@ -39,7 +39,7 @@ export default function CartButton() {
           <SheetTrigger asChild>
             <Button className="relative" size="square" variant="secondary">
               <ShoppingCart />
-              <Badge className="bg-badge ">1</Badge>
+              <Badge className="bg-badge ">0</Badge>
             </Button>
           </SheetTrigger>
           <SheetContent size="xl" position="bottom">

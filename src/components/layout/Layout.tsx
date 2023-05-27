@@ -8,7 +8,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <main>
       <Navbar />
-      <section className="container mt-32  antialiased">{children}</section>
+      <section className="container my-32  antialiased">{children}</section>
     </main>
   );
 }
