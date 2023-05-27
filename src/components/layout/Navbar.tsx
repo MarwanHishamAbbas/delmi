@@ -31,7 +31,7 @@ export default function Navbar() {
           >
             Delivery address
           </Button>
-          <div className="hidden gap-3 text-base text-[#ABAAAD] md:flex">
+          <div className="hidden gap-3 text-base text-muted-foreground md:flex">
             <Link href="/shops">Shops</Link>
             <Link href="/restaurants">Restaurants</Link>
           </div>

@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/require-await */
 import { Separator } from "~/components/ui/separator";
-import { ProfileForm } from "./profile-form";
+import { ProfileForm } from "../../components/profile/profile-form";
 import ProfileLayout from "~/components/profile/ProfileLayout";
+import { requireAuth } from "~/utils/requireAuth";
 
 export default function SettingsProfilePage() {
   return (
@@ -18,3 +20,7 @@ export default function SettingsProfilePage() {
     </ProfileLayout>
   );
 }
+
+export const getServerSideProps = requireAuth(async () => {
+  return { props: {} };
+});
