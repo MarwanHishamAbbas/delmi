@@ -1,7 +1,6 @@
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { getServerAuthSession } from "~/server/auth";
 
-// auth.ts
 export const requireAuth =
   (func: GetServerSideProps) => async (ctx: GetServerSidePropsContext) => {
     const session = await getServerAuthSession(ctx);
