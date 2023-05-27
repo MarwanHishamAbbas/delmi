@@ -46,6 +46,7 @@ export const authOptions: NextAuthOptions = {
     }),
   },
   adapter: PrismaAdapter(prisma),
+  theme: { colorScheme: "light", logo: "/brand.svg" },
   providers: [
     GoogleProvider({
       clientId: env.DISCORD_CLIENT_ID,
