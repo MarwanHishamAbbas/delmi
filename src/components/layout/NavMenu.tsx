@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-export default function NavMenu() {
+export default function NavMenu({ address }: { address: string }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="md:hidden">
@@ -26,7 +26,7 @@ export default function NavMenu() {
         </DropdownMenuLabel>
         <DropdownMenuLabel asChild>
           <Button variant="link" size="sm" icon={<MapPin />}>
-            Delivery address
+            {address}
           </Button>
         </DropdownMenuLabel>
         <DropdownMenuItem asChild>
