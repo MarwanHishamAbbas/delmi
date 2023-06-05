@@ -1,3 +1,4 @@
+import { type Product } from "@prisma/client";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
@@ -12,10 +13,14 @@ const initialState: CartState = {
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
-  reducers: {},
+  reducers: {
+    addItemToCart: (state, action: PayloadAction<Product>) => {
+      console.log(action.payload);
+    },
+  },
 });
 
 // Action creators are generated for each case reducer function
-export const cartActions = cartSlice.actions;
+export const { addItemToCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
