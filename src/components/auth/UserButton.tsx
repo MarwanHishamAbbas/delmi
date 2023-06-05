@@ -23,7 +23,7 @@ export function UserButton() {
       await signIn("google");
     } catch (error) {
       // Adding Toast Later
-      console.log(error);
+      return;
     } finally {
       setIsLoading(false);
     }
