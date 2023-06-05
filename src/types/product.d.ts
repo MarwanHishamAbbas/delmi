@@ -3,4 +3,5 @@ export interface ProductCardProps {
   price: number;
   picture: string;
   description: string;
+  quantity: number;
 }

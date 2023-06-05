@@ -9,8 +9,8 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 
 import type { ProductCardProps } from "~/types/product";
-import { useDispatch } from "react-redux";
 import { addItemToCart } from "~/store/cart-slice";
+import { useAppDispatch } from "~/hooks/redux-hooks";
 
 export default function ProductCard({
   name,
@@ -18,9 +18,9 @@ export default function ProductCard({
   picture,
   description,
 }: ProductCardProps) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const addItemToCartHandler = () => {
-    dispatch(addItemToCart({ name, description, price, picture }));
+    dispatch(addItemToCart({ name, description, price, picture, quantity: 1 }));
   };
   return (
     <Card>
