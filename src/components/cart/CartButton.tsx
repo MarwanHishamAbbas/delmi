@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -12,10 +12,15 @@ import { Badge } from "../ui/badge";
 
 import type { RootState } from "~/store";
 import { useAppSelector } from "~/hooks/redux-hooks";
+import CartList from "./CartList";
+import { Card } from "../ui/card";
 
 export default function CartButton() {
   const totalQuantity = useAppSelector(
     (state: RootState) => state.cart.totalQuantity
+  );
+  const totalPrice = useAppSelector(
+    (state: RootState) => state.cart.totalPrice
   );
 
   return (
@@ -29,15 +34,20 @@ export default function CartButton() {
             </Button>
           </SheetTrigger>
 
-          <SheetContent>
+          <SheetContent className="flex flex-col">
             <SheetHeader>
-              <SheetTitle>Are you sure absolutely sure?</SheetTitle>
-              <SheetDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers. This action
-                cannot be undone.
-              </SheetDescription>
+              <SheetTitle>Cart</SheetTitle>
             </SheetHeader>
+            <CartList />
+            <SheetFooter className="px-5 py-8">
+              <Card className="flex items-center justify-between text-base font-bold">
+                <p className="">Total Order:</p>
+                <Card className="bg-destructive/10 px-6 py-2">
+                  <p>${totalPrice}</p>
+                </Card>
+              </Card>
+              <Button className="mt-4 w-full">Order Now</Button>
+            </SheetFooter>
           </SheetContent>
         </Sheet>
       </div>
@@ -51,14 +61,17 @@ export default function CartButton() {
           </SheetTrigger>
           <SheetContent size="xl" position="bottom">
             <SheetHeader>
-              <SheetTitle>Are you sure absolutely sure?</SheetTitle>
-              <SheetDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers. This action
-                cannot be undone. This will permanently delete your account and
-                remove your data from our servers.
-              </SheetDescription>
+              <SheetTitle>Cart</SheetTitle>
             </SheetHeader>
+            <CartList />
+            <SheetFooter>
+              <Card className="flex items-center justify-between">
+                <p className="text-base font-bold">Total Order:</p>
+                <Card className="bg-destructive/10 px-6 py-2">
+                  <p>${totalPrice}</p>
+                </Card>
+              </Card>
+            </SheetFooter>
           </SheetContent>
         </Sheet>
       </div>

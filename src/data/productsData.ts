@@ -18,7 +18,31 @@ export const PRODUCTS_DATA = [
     price: 8,
   },
   {
-    name: "Backonizer",
+    name: "Backonizerr",
+    picture: "/products/backonizer.png",
+    description: "220gr, 416kcal",
+    price: 9,
+  },
+  {
+    name: "Backonizerrrr",
+    picture: "/products/backonizer.png",
+    description: "220gr, 416kcal",
+    price: 9,
+  },
+  {
+    name: "Backonizerrrrr",
+    picture: "/products/backonizer.png",
+    description: "220gr, 416kcal",
+    price: 9,
+  },
+  {
+    name: "Backonizerrrrrr",
+    picture: "/products/backonizer.png",
+    description: "220gr, 416kcal",
+    price: 9,
+  },
+  {
+    name: "Backonizerrrrrrrrr",
     picture: "/products/backonizer.png",
     description: "220gr, 416kcal",
     price: 9,
