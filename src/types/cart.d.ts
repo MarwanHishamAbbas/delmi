@@ -1,3 +1,4 @@
-export interface CartProps {
-  items: Array;
+export interface CartState {
+  items: Product[];
+  totalPrice: number;
 }

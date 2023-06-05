@@ -9,8 +9,13 @@ import {
   SheetTrigger,
 } from "../ui/sheet";
 import { Badge } from "../ui/badge";
+import { useSelector } from "react-redux";
+
+import type { RootState } from "~/store";
 
 export default function CartButton() {
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
+
   return (
     <>
       <div className="hidden md:block">
@@ -39,7 +44,7 @@ export default function CartButton() {
           <SheetTrigger asChild>
             <Button className="relative" size="square" variant="secondary">
               <ShoppingCart />
-              <Badge className="bg-badge ">0</Badge>
+              <Badge className="bg-badge ">{totalPrice}</Badge>
             </Button>
           </SheetTrigger>
           <SheetContent size="xl" position="bottom">
