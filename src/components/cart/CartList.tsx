@@ -7,7 +7,7 @@ export default function CartList() {
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
 
   return (
-    <section className="flex-1">
+    <section className="h-full flex-1">
       <div className="grid gap-5 px-5">
         {cartItems.map((item, idx) => (
           <CartCard

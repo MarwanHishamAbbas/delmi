@@ -189,7 +189,7 @@ const SheetFooter = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn("sticky bottom-0 bg-background px-5", className)}
+    className={cn("sticky bottom-0 space-y-2 bg-background px-5", className)}
     {...props}
   />
 );

@@ -25,7 +25,7 @@ export default function ProductCard({
   return (
     <Card>
       <Image
-        src={picture}
+        src={picture || ""}
         alt="Restaurant"
         width={150}
         height={150}

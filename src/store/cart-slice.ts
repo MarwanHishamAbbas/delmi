@@ -26,19 +26,43 @@ export const cartSlice = createSlice({
       }
       state.totalQuantity = state.totalQuantity + action.payload.quantity;
     },
+    incrementItemInCart: (state, action: PayloadAction<string>) => {
+      const incrementedItem = state.items.find(
+        (item) => item.name === action.payload
+      );
+      incrementedItem.quantity++;
+      state.totalPrice = state.totalPrice + incrementedItem.price;
+      state.totalQuantity = state.totalQuantity + incrementedItem.quantity;
+    },
+    decrementItemInCart: (state, action: PayloadAction<string>) => {
+      const decrementedItem = state.items.find(
+        (item) => item.name === action.payload
+      );
+      if (decrementedItem.quantity === 1) {
+        state.items = state.items.filter(
+          (item) => item.name !== action.payload
+        );
+      } else {
+      }
+    },
     deleteItemFromCart: (state, action: PayloadAction<string>) => {
       const deletedItem = state.items.find(
         (item) => item.name === action.payload
       );
       state.items = state.items.filter((item) => item.name !== action.payload);
-      state.totalQuantity = state.totalQuantity - deletedItem.quantity;
       state.totalPrice =
         state.totalPrice - deletedItem.price * deletedItem.quantity;
+      state.totalQuantity = state.totalQuantity - deletedItem.quantity;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addItemToCart, deleteItemFromCart } = cartSlice.actions;
+export const {
+  addItemToCart,
+  deleteItemFromCart,
+  incrementItemInCart,
+  decrementItemInCart,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

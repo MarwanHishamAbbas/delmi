@@ -1,4 +1,4 @@
-import { ShoppingCart } from "lucide-react";
+import { DollarSign, ShoppingCart, Truck } from "lucide-react";
 import { Button } from "../ui/button";
 import {
   Sheet,
@@ -40,12 +40,27 @@ export default function CartButton() {
             </SheetHeader>
             <CartList />
             <SheetFooter className="px-5 py-8">
+              <Card className="flex items-center justify-between text-base">
+                <div>
+                  <p>Delivery</p>
+                  <span>$4</span>
+                </div>
+                <Truck size={30} />
+              </Card>
+              <Card className="flex items-center justify-between text-base">
+                <div>
+                  <p>Service</p>
+                  <span>$10</span>
+                </div>
+                <DollarSign size={30} />
+              </Card>
               <Card className="flex items-center justify-between text-base font-bold">
                 <p className="">Total Order:</p>
                 <Card className="bg-destructive/10 px-6 py-2">
                   <p>${totalPrice}</p>
                 </Card>
               </Card>
+
               <Button className="mt-4 w-full">Order Now</Button>
             </SheetFooter>
           </SheetContent>
@@ -64,13 +79,28 @@ export default function CartButton() {
               <SheetTitle>Cart</SheetTitle>
             </SheetHeader>
             <CartList />
-            <SheetFooter>
-              <Card className="flex items-center justify-between">
-                <p className="text-base font-bold">Total Order:</p>
+            <SheetFooter className="px-5 py-8">
+              <Card className="flex items-center justify-between text-base">
+                <div>
+                  <p>Delivery</p>
+                  <span>$4</span>
+                </div>
+                <Truck size={30} />
+              </Card>
+              <Card className="flex items-center justify-between text-base">
+                <div>
+                  <p>Service</p>
+                  <span>$10</span>
+                </div>
+                <DollarSign size={30} />
+              </Card>
+              <Card className="flex items-center justify-between text-base font-bold">
+                <p className="">Total Order:</p>
                 <Card className="bg-destructive/10 px-6 py-2">
                   <p>${totalPrice}</p>
                 </Card>
               </Card>
+              <Button className="mt-4 w-full">Order Now</Button>
             </SheetFooter>
           </SheetContent>
         </Sheet>
