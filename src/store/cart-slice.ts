@@ -6,7 +6,6 @@ import type { ProductCardProps } from "~/types/product";
 const initialState: CartState = {
   items: [],
   totalPrice: 0,
-  totalQuantity: 0,
 };
 
 export const cartSlice = createSlice({
@@ -24,35 +23,26 @@ export const cartSlice = createSlice({
         state.items.push(action.payload);
         state.totalPrice = state.totalPrice + action.payload.price;
       }
-      state.totalQuantity = state.totalQuantity + action.payload.quantity;
     },
     incrementItemInCart: (state, action: PayloadAction<string>) => {
       const incrementedItem = state.items.find(
         (item) => item.name === action.payload
       );
-      incrementedItem.quantity++;
-      state.totalPrice = state.totalPrice + incrementedItem.price;
-      state.totalQuantity = state.totalQuantity + incrementedItem.quantity;
     },
     decrementItemInCart: (state, action: PayloadAction<string>) => {
       const decrementedItem = state.items.find(
         (item) => item.name === action.payload
       );
-      if (decrementedItem.quantity === 1) {
-        state.items = state.items.filter(
-          (item) => item.name !== action.payload
-        );
-      } else {
-      }
     },
     deleteItemFromCart: (state, action: PayloadAction<string>) => {
       const deletedItem = state.items.find(
         (item) => item.name === action.payload
       );
+      if (deletedItem) {
+        state.totalPrice =
+          state.totalPrice - deletedItem?.price * deletedItem.quantity;
+      }
       state.items = state.items.filter((item) => item.name !== action.payload);
-      state.totalPrice =
-        state.totalPrice - deletedItem.price * deletedItem.quantity;
-      state.totalQuantity = state.totalQuantity - deletedItem.quantity;
     },
   },
 });

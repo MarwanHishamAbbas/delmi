@@ -17,8 +17,8 @@ import { Card } from "../ui/card";
 
 export default function CartButton() {
   const totalQuantity = useAppSelector(
-    (state: RootState) => state.cart.totalQuantity
-  );
+    (state: RootState) => state.cart.items
+  ).length;
   const totalPrice = useAppSelector(
     (state: RootState) => state.cart.totalPrice
   );
