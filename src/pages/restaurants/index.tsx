@@ -12,6 +12,7 @@ export default function ResturantsPage() {
           picture={product.picture}
           price={product.price}
           description={product.description}
+          quantity={1}
         />
       ))}
     </section>

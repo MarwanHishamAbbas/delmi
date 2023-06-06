@@ -20,10 +20,10 @@ export function UserButton() {
   const signInWithGoogle = async () => {
     setIsLoading(true);
     try {
-      await signIn("google");
+      await signIn("google").catch((error) => console.log(error));
     } catch (error) {
       // Adding Toast Later
-      return;
+      console.log(error);
     } finally {
       setIsLoading(false);
     }
