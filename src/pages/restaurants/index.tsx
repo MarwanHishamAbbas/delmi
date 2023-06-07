@@ -4,7 +4,7 @@ import { PRODUCTS_DATA } from "~/data/productsData";
 
 export default function ResturantsPage() {
   return (
-    <section className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4 lg:gap-7">
+    <section className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-7 xl:grid-cols-4">
       {PRODUCTS_DATA.map((product) => (
         <ProductCard
           key={product.name}

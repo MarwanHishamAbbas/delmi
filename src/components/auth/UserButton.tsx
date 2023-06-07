@@ -60,6 +60,7 @@ export function UserButton() {
             icon={<Chrome />}
             type="submit"
             isLoading={isLoading}
+            disabled={isLoading}
           >
             Sign in with Google
           </Button>

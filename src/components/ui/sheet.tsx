@@ -157,7 +157,7 @@ const SheetContent = React.forwardRef<
       className={cn(
         sheetVariants({ position, size }),
         className,
-        "overflow-auto"
+        " overflow-auto"
       )}
       {...props}
     >
@@ -188,10 +188,12 @@ const SheetFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn("sticky bottom-0 space-y-2 bg-background px-5", className)}
-    {...props}
-  />
+  <footer className="sticky bottom-0 mt-20">
+    <div
+      className={cn(" space-y-2 bg-background px-5", className)}
+      {...props}
+    />
+  </footer>
 );
 SheetFooter.displayName = "SheetFooter";
 

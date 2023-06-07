@@ -51,6 +51,7 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
       <Button
         onClick={() => void logoutHandler()}
         isLoading={loading}
+        disabled={loading}
         variant="ghost"
         icon={<LogOut />}
         className="justify-start"

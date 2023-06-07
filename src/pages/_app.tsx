@@ -6,6 +6,7 @@ import "~/styles/globals.css";
 import Layout from "~/components/layout/Layout";
 import { store } from "../store/index";
 import { Provider } from "react-redux";
+import { Toaster } from "~/components/layout/Toaster";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -16,6 +17,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
       <Provider store={store}>
         <Layout>
           <Component {...pageProps} />
+          <Toaster />
         </Layout>
       </Provider>
     </SessionProvider>

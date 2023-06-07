@@ -19,8 +19,8 @@ export default function CartButton() {
   const totalQuantity = useAppSelector(
     (state: RootState) => state.cart.items
   ).length;
-  const cartItems = useAppSelector((state: RootState) => state.cart.items);
 
+  const cartItems = useAppSelector((state: RootState) => state.cart.items);
   const total = getTotalPrice(cartItems);
 
   return (
@@ -61,7 +61,9 @@ export default function CartButton() {
                 </Card>
               </Card>
 
-              <Button className="mt-4 w-full">Order Now</Button>
+              <Button disabled={!!!totalQuantity} className="mt-4 w-full">
+                Order Now
+              </Button>
             </SheetFooter>
           </SheetContent>
         </Sheet>
@@ -79,28 +81,10 @@ export default function CartButton() {
               <SheetTitle>Cart</SheetTitle>
             </SheetHeader>
             <CartList />
-            <SheetFooter className="px-5 py-8">
-              <Card className="flex items-center justify-between text-base">
-                <div>
-                  <p>Delivery</p>
-                  <span>$4</span>
-                </div>
-                <Truck size={30} />
-              </Card>
-              <Card className="flex items-center justify-between text-base">
-                <div>
-                  <p>Service</p>
-                  <span>$10</span>
-                </div>
-                <DollarSign size={30} />
-              </Card>
-              <Card className="flex items-center justify-between text-base font-bold">
-                <p className="">Total Order:</p>
-                <Card className="bg-destructive/10 px-6 py-2">
-                  <p>${total}</p>
-                </Card>
-              </Card>
-              <Button className="mt-4 w-full">Order Now</Button>
+            <SheetFooter className=" px-5 py-8">
+              <Button disabled={!!!totalQuantity} className="mt-4 w-full ">
+                Order Now
+              </Button>
             </SheetFooter>
           </SheetContent>
         </Sheet>
