@@ -10,6 +10,7 @@ export default function CartCard({
   price,
   picture,
   quantity,
+  description,
 }: ProductCardProps) {
   return (
     <Card>
@@ -17,7 +18,13 @@ export default function CartCard({
         <div className="space-y-2 text-sm">
           <h5>{name}</h5>
           <span className="font-bold">${price}</span>
-          <CartCardOptions name={name} quantity={quantity} />
+          <CartCardOptions
+            name={name}
+            quantity={quantity}
+            description={description}
+            price={price}
+            picture={picture}
+          />
         </div>
         <Image alt={name} src={picture} width={100} height={100} />
       </CardContent>

@@ -3,21 +3,14 @@ import { Button } from "../ui/button";
 import { Minus, Plus, Trash } from "lucide-react";
 import { useAppDispatch } from "~/hooks/redux-hooks";
 import {
-  decrementItemInCart,
-  deleteItemFromCart,
   incrementItemInCart,
+  deleteItemFromCart,
+  decrementItemInCart,
 } from "~/store/cart-slice";
 import { Card } from "../ui/card";
+import type { ProductCardProps } from "~/types/product";
 
-interface CartCardOptionsProps {
-  name: string;
-  quantity: number;
-}
-
-export default function CartCardOptions({
-  name,
-  quantity,
-}: CartCardOptionsProps) {
+export default function CartCardOptions({ name, quantity }: ProductCardProps) {
   const dispatch = useAppDispatch();
   const deleteItemFromCardHandler = () => {
     dispatch(deleteItemFromCart(name));
@@ -28,6 +21,7 @@ export default function CartCardOptions({
   const decrementItemHandler = () => {
     dispatch(decrementItemInCart(name));
   };
+
   return (
     <div className="flex items-center gap-4 ">
       <Card className="flex items-center gap-4  p-0">

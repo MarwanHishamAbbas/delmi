@@ -13,35 +13,36 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addItemToCart: (state, action: PayloadAction<ProductCardProps>) => {
-      const existingItem = state.items.find(
+      const inCartItem = state.items.find(
         (item) => item.name === action.payload.name
       );
-      if (existingItem) {
-        existingItem.quantity++;
-        state.totalPrice = state.totalPrice + existingItem.price;
-      } else {
+      if (!inCartItem) {
         state.items.push(action.payload);
-        state.totalPrice = state.totalPrice + action.payload.price;
+      } else {
+        inCartItem.quantity++;
       }
     },
     incrementItemInCart: (state, action: PayloadAction<string>) => {
       const incrementedItem = state.items.find(
         (item) => item.name === action.payload
       );
+      if (incrementedItem) {
+        incrementedItem.quantity = incrementedItem.quantity + 1;
+      }
     },
     decrementItemInCart: (state, action: PayloadAction<string>) => {
       const decrementedItem = state.items.find(
         (item) => item.name === action.payload
-      );
+      ) as ProductCardProps;
+      if (decrementedItem.quantity === 1) {
+        state.items = state.items.filter(
+          (item) => item.name !== action.payload
+        );
+      } else {
+        decrementedItem.quantity--;
+      }
     },
     deleteItemFromCart: (state, action: PayloadAction<string>) => {
-      const deletedItem = state.items.find(
-        (item) => item.name === action.payload
-      );
-      if (deletedItem) {
-        state.totalPrice =
-          state.totalPrice - deletedItem?.price * deletedItem.quantity;
-      }
       state.items = state.items.filter((item) => item.name !== action.payload);
     },
   },

@@ -57,7 +57,7 @@ export default function CartButton() {
               <Card className="flex items-center justify-between text-base font-bold">
                 <p className="">Total Order:</p>
                 <Card className="bg-destructive/10 px-6 py-2">
-                  <p>${totalPrice}</p>
+                  <p>${!totalPrice ? 0 : totalPrice + 14}</p>
                 </Card>
               </Card>
 
@@ -97,7 +97,7 @@ export default function CartButton() {
               <Card className="flex items-center justify-between text-base font-bold">
                 <p className="">Total Order:</p>
                 <Card className="bg-destructive/10 px-6 py-2">
-                  <p>${totalPrice}</p>
+                  <p>${!totalPrice ? 0 : totalPrice + 14}</p>
                 </Card>
               </Card>
               <Button className="mt-4 w-full">Order Now</Button>
