@@ -188,7 +188,7 @@ const SheetFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <footer className="sticky bottom-0 mt-20">
+  <footer className="sticky bottom-0">
     <div
       className={cn(" space-y-2 bg-background px-5", className)}
       {...props}

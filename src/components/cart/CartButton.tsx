@@ -82,6 +82,12 @@ export default function CartButton() {
             </SheetHeader>
             <CartList />
             <SheetFooter className=" px-5 py-8">
+              <Card className="flex items-center justify-between text-base font-bold">
+                <p className="">Total Order:</p>
+                <Card className="bg-destructive/10 px-6 py-2">
+                  <p>${total}</p>
+                </Card>
+              </Card>
               <Button disabled={!!!totalQuantity} className="mt-4 w-full ">
                 Order Now
               </Button>
