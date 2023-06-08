@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 flex h-20 items-center border-b-[1px] border-b-secondary bg-background/70 shadow-sm backdrop-blur-md">
-      <nav className="container flex items-center justify-between gap-6">
+      <nav className="container my-32 flex items-center justify-between gap-6 px-4 antialiased lg:px-8">
         <div className="flex items-center ">
           <Link href="/">
             <Image

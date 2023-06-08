@@ -2,6 +2,7 @@ import { DollarSign, ShoppingCart, Truck } from "lucide-react";
 import { Button } from "../ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetFooter,
   SheetHeader,
@@ -15,10 +16,8 @@ import CartList from "./CartList";
 import { Card } from "../ui/card";
 import { getTotalPrice } from "~/lib/utils";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function CartButton() {
-  const [isOpen, setIsOpen] = useState<boolean>();
   const totalQuantity = useAppSelector(
     (state: RootState) => state.cart.items
   ).length;
@@ -27,7 +26,7 @@ export default function CartButton() {
   const total = getTotalPrice(cartItems);
 
   return (
-    <Sheet open={isOpen}>
+    <Sheet>
       <SheetTrigger asChild>
         <Button className="relative" size="square" variant="secondary">
           <ShoppingCart />
@@ -62,10 +61,12 @@ export default function CartButton() {
             </Card>
           </Card>
 
-          <Link onClick={() => setIsOpen(!isOpen)} href="order">
-            <Button disabled={!!!totalQuantity} className="mt-4 w-full">
-              Order Now
-            </Button>
+          <Link href="order">
+            <SheetClose className="w-full">
+              <Button disabled={!!!totalQuantity} className="mt-4 w-full">
+                Order Now
+              </Button>
+            </SheetClose>
           </Link>
         </SheetFooter>
       </SheetContent>
