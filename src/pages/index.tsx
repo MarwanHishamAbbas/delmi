@@ -1,9 +1,12 @@
 import { type NextPage } from "next";
+import { useSession } from "next-auth/react";
 
 import Head from "next/head";
 import PromoCards from "~/components/common/PromoCards";
 
 const Home: NextPage = () => {
+  const { data } = useSession();
+  console.log(data?.user);
   return (
     <>
       <Head>

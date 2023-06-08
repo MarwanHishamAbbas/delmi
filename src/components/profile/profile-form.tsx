@@ -28,8 +28,8 @@ const profileFormSchema = z.object({
     }),
   phone: z
     .number()
-    .min(2, {
-      message: "Name must be at least 2 characters.",
+    .min(12, {
+      message: "Phone must be at least 11 characters.",
     })
     .max(30, {
       message: "Name must not be longer than 30 characters.",
@@ -49,6 +49,7 @@ type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
 export function ProfileForm() {
   const { data } = useSession();
+  console.log(data?.user);
   const defaultValues: Partial<ProfileFormValues> = {
     name: data?.user.name ?? "",
     email: data?.user.email ?? "",

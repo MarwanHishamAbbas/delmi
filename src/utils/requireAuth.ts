@@ -8,10 +8,9 @@ export const requireAuth =
     if (!session) {
       return {
         redirect: {
-          destination: "/",
-          // destination: `/api/auth/signin?callbackUrl=${encodeURIComponent(
-          //   ctx.resolvedUrl
-          // )}`,
+          destination: `/api/auth/signin?callbackUrl=${encodeURIComponent(
+            ctx.resolvedUrl
+          )}`,
           permanent: false,
         },
       };
