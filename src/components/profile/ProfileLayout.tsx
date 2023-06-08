@@ -1,3 +1,4 @@
+import { MetaHeader } from "../meta/MetaHeader";
 import { Separator } from "../ui/separator";
 import { SidebarNav } from "../ui/sidebar-nav";
 
@@ -19,6 +20,7 @@ interface ProfileLayoutProps {
 export default function ProfileLayout({ children }: ProfileLayoutProps) {
   return (
     <>
+      <MetaHeader title="Profile" />
       <div className="">
         <div className="space-y-0.5">
           <h2 className="text-2xl font-bold tracking-tight">User Profile</h2>

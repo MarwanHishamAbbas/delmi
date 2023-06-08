@@ -3,5 +3,12 @@ export interface ProductCardProps {
   price: number;
   picture: string;
   description: string;
+}
+
+export interface CartItemProps {
+  name: string;
+  price: number;
+  picture: string;
+  description: string;
   quantity: number;
 }

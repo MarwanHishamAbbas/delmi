@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent } from "../ui/card";
 import Image from "next/image";
-import type { ProductCardProps } from "~/types/product";
+import type { CartItemProps } from "~/types/product";
 
 import CartCardOptions from "./CartCardOptions";
 
@@ -11,7 +11,7 @@ export default function CartCard({
   picture,
   quantity,
   description,
-}: ProductCardProps) {
+}: CartItemProps) {
   return (
     <Card>
       <CardContent className="flex-row items-center justify-between p-0">

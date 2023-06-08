@@ -7,7 +7,6 @@ import {
 } from "../ui/card";
 import Image from "next/image";
 import { Button } from "../ui/button";
-
 import type { ProductCardProps } from "~/types/product";
 import { addItemToCart } from "~/store/cart-slice";
 import { useAppDispatch } from "~/hooks/redux-hooks";

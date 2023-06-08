@@ -6,7 +6,7 @@ interface LayoutProps {
 }
 export default function Layout({ children }: LayoutProps) {
   return (
-    <main>
+    <main className="text-foreground">
       <Navbar />
       <section className="container my-32 px-4 antialiased   lg:px-8">
         {children}

@@ -1,6 +1,6 @@
-import { type ProductCardProps } from "./product";
+import { type CartItemProps } from "./product";
 
 export interface CartState {
-  items: ProductCardProps[];
+  items: CartItemProps[];
   totalPrice: number;
 }

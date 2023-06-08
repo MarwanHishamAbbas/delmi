@@ -8,9 +8,9 @@ import {
   decrementItemInCart,
 } from "~/store/cart-slice";
 import { Card } from "../ui/card";
-import type { ProductCardProps } from "~/types/product";
+import type { CartItemProps } from "~/types/product";
 
-export default function CartCardOptions({ name, quantity }: ProductCardProps) {
+export default function CartCardOptions({ name, quantity }: CartItemProps) {
   const dispatch = useAppDispatch();
   const deleteItemFromCardHandler = () => {
     dispatch(deleteItemFromCart(name));

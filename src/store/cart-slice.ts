@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { CartState } from "~/types/cart";
-import type { ProductCardProps } from "~/types/product";
+import type { CartItemProps } from "~/types/product";
 
 const initialState: CartState = {
   items: [],
@@ -12,7 +12,7 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItemToCart: (state, action: PayloadAction<ProductCardProps>) => {
+    addItemToCart: (state, action: PayloadAction<CartItemProps>) => {
       const inCartItem = state.items.find(
         (item) => item.name === action.payload.name
       );
@@ -33,7 +33,7 @@ export const cartSlice = createSlice({
     decrementItemInCart: (state, action: PayloadAction<string>) => {
       const decrementedItem = state.items.find(
         (item) => item.name === action.payload
-      ) as ProductCardProps;
+      ) as CartItemProps;
       if (decrementedItem.quantity === 1) {
         state.items = state.items.filter(
           (item) => item.name !== action.payload

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import type * as z from "zod";
 
 import {
   Form,
@@ -15,44 +15,20 @@ import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
 
 import { Textarea } from "~/components/ui/textarea";
-import { useSession } from "next-auth/react";
-
-const profileFormSchema = z.object({
-  name: z
-    .string()
-    .min(2, {
-      message: "Name must be at least 2 characters.",
-    })
-    .max(30, {
-      message: "Name must not be longer than 30 characters.",
-    }),
-  phone: z
-    .number()
-    .min(12, {
-      message: "Phone must be at least 11 characters.",
-    })
-    .max(30, {
-      message: "Name must not be longer than 30 characters.",
-    }),
-  email: z
-    .string({
-      required_error: "Please select an email to display.",
-    })
-    .email(),
-  info: z.string().max(160).min(4),
-  delivery: z.string().max(300).min(4),
-});
+import type { profileFormSchema } from "~/schema/profile";
+import { api } from "~/utils/api";
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
 // This can come from your database or API.
 
 export function ProfileForm() {
-  const { data } = useSession();
-  console.log(data?.user);
+  const user = api.user.getUser.useQuery();
   const defaultValues: Partial<ProfileFormValues> = {
-    name: data?.user.name ?? "",
-    email: data?.user.email ?? "",
+    name: user.data?.name ?? "",
+    email: user.data?.email ?? "",
+    phone: user.data?.phone as string,
+    delivery: user.data?.deliveryAddress as string,
     info: "",
   };
 

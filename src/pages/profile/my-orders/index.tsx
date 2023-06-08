@@ -1,18 +1,13 @@
+import Image from "next/image";
 import React from "react";
 import ProfileLayout from "~/components/profile/ProfileLayout";
-import { Separator } from "~/components/ui/separator";
 
 export default function MyOrders() {
   return (
     <ProfileLayout>
-      <div className="space-y-6">
-        <div>
-          <h3 className="text-lg font-medium">My orders</h3>
-          <p className="text-sm text-muted-foreground">
-            This is how others will see you on the site.
-          </p>
-        </div>
-        <Separator />
+      <div className="grid place-content-center">
+        <Image src="/no-orders.svg" alt="No Orders" width={300} height={300} />
+        <h4 className="text-xl font-bold">No Orders Yet</h4>
       </div>
     </ProfileLayout>
   );

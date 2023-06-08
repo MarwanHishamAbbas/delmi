@@ -62,7 +62,7 @@ export default function CartButton() {
           </Card>
 
           <Link href="order">
-            <SheetClose className="w-full">
+            <SheetClose className="w-full" asChild>
               <Button disabled={!!!totalQuantity} className="mt-4 w-full">
                 Order Now
               </Button>
